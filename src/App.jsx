@@ -1,8 +1,11 @@
+import Registration from "./components/auth/Registration";
+
+
 
 function App() {
   return (
     <div className="App">
-      Hello my first
+      <Registration/>
     </div>
   );
 }
