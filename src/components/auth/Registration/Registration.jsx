@@ -23,23 +23,18 @@ const Registration = () => {
     const sub = async (e) => {
         e.preventDefault();
 
-//Осталось только сравнить email который написал пользователь со всеми email которые есть в firebase, я постараюсь это сделать до понидельника
-
         onSnapshot(query(collection(db, "userAuthDate")), (querySnapshot) => {
             const userAuthDate = [];
             querySnapshot.forEach((doc) => {
                 userAuthDate.push(doc.data());
             });
 
-            
-            console.log(userAuthDate);
-
-
+            userAuthDate.forEach((userData) => {
+                if ( userData.email == email ) {
+                    alert('Эта электронная почта уже авторизован, пожалуйста перейдитье в страницу Log in или используйтье другой email') 
+                } 
+            });
         });
-
-
-//Осталось только сравнить email который написал пользователь со всеми email которые есть в firebase, я постараюсь это сделать до понидельника
-
 
         if (name.indexOf(' ') !== -1 || name.length < 4 || pass.indexOf(' ') !== -1 || pass.length < 4 || email.indexOf(' ') !== -1) {
             alert('Date is not full');
@@ -55,14 +50,8 @@ const Registration = () => {
                 })
             }
             foo()
-
-
-
         }
     }
-
-//Осталось только сравнить email который написал пользователь со всеми email которые есть в firebase, я постараюсь это сделать до понидельника
-
 
     return (
         <div className='registration'>
