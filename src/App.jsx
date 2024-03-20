@@ -1,11 +1,13 @@
 import Registration from "./components/auth/Registration";
-
+import { Route, Routes } from "react-router";
 
 
 function App() {
   return (
     <div className="App">
-      <Registration/>
+      <Routes>
+        <Route path="/" element={<Registration/>}/>
+      </Routes>
     </div>
   );
 }
