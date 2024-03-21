@@ -7,7 +7,8 @@ module.exports = {
         alias: {
             '@components': resolvePath('./src/components'),
             '@pages': resolvePath('./src/pages'),
-            '@firebase': resolvePath('./src/firebase')
+            '@store': resolvePath('./src/store')
+
         }
     },
 }
