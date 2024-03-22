@@ -37,17 +37,22 @@ const Registration = () => {
         const foundEmail = userAuthDate.some((userData) => userData.email === email);
         dispatch(setEmailExists(foundEmail));
 
-        if (
-            name.indexOf(' ') !== -1 ||
-            name.length < 4 || 
-            name.length > 16 || 
-            pass.indexOf(' ') !== -1 ||
-            pass.length < 4 || 
-            pass.length > 32 || 
-            email.indexOf(' ') !== -1 ||
-            foundEmail
-        ) {
-            alert('Неправильная форма регистрации!!!');
+               if (name.indexOf(' ') !== -1 ) {
+            alert('Неправильная форма имени!!!');
+        } else if (name.length < 4 ) {
+            alert('Слишком короткое имя!!!')
+        } else if (name.length > 25 ) {
+            alert('Слишком длинное имя!!!')
+        } else if (pass.indexOf(' ') !== -1 ) {
+            alert('Неправильная форма пароля!!!')
+        } else if (pass.length < 8 ) {
+            alert('Слишком короткий пароль!!!')
+        } else if (pass.length > 60 ) {
+            alert('Слишком длинный пароль!!!')
+        } else if (email.indexOf(' ') !== -1 ) {
+            alert('Неправильная форма пароля!!!')
+        } else if (foundEmail) {
+            alert('Данный email уже авторизован')
         } else {
             addDoc(collection(db, "userAuthDate"), {
                 name: name,
@@ -60,6 +65,8 @@ const Registration = () => {
                 console.error("ошибка: ", error);
             });
         }
+
+
     };
 
     if (registrationSuccess) {
