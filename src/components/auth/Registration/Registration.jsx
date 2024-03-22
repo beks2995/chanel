@@ -2,27 +2,27 @@ import React from 'react';
 import { collection, query, addDoc, getDocs } from "firebase/firestore";
 import './App.css'
 import { db } from '../../../firebase';
-import { Link } from 'react-router-dom';
-import { setName, setPass, setEmail, setEmailExists } from '@store/auth/authSlice';
+import { Link, Navigate } from 'react-router-dom';
+import { setName, setPass, setEmail, setEmailExists, setRegistrationSuccess } from '@store/auth/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Registration = () => {
-    const dispatch = useDispatch()
-    const name = useSelector((s) => s.auth.name)
-    const pass = useSelector((s) => s.auth.pass)
-    const email = useSelector((s) => s.auth.email)
-
+    const dispatch = useDispatch();
+    const name = useSelector((s) => s.auth.name);
+    const pass = useSelector((s) => s.auth.pass);
+    const email = useSelector((s) => s.auth.email);
+    const registrationSuccess = useSelector(s => s.auth.registrationSuccess);
 
     const nameSub = (e) => {
-        dispatch(setName(e.target.value))
+        dispatch(setName(e.target.value));
     };
 
     const passSub = (e) => {
-        dispatch(setPass(e.target.value))
+        dispatch(setPass(e.target.value));
     };
 
     const emailSub = (e) => {
-       dispatch( setEmail(e.target.value))
+       dispatch( setEmail(e.target.value));
     };
 
     const sub = async (e) => {
@@ -35,7 +35,7 @@ const Registration = () => {
         });
 
         const foundEmail = userAuthDate.some((userData) => userData.email === email);
-        dispatch(setEmailExists(foundEmail))
+        dispatch(setEmailExists(foundEmail));
 
         if (
             name.indexOf(' ') !== -1 ||
@@ -54,10 +54,17 @@ const Registration = () => {
                 password: pass,
                 email: email,
                 isAdmin: false,
-                id: 2
+            }).then(() => {
+                dispatch(setRegistrationSuccess(true));
+            }).catch((error) => {
+                console.error("ошибка: ", error);
             });
         }
     };
+
+    if (registrationSuccess) {
+        return <Navigate to="/home" />;
+    }
 
     return (
         <div className='registration'>
@@ -77,4 +84,4 @@ const Registration = () => {
     );
 };
 
-export default Registration;
+export default React.memo(Registration);

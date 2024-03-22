@@ -1,3 +1,4 @@
+import React from "react";
 import {Routes, Route } from "react-router";
 import Posts from "./components/Posts/Posts";
 import '@fortawesome/fontawesome-free/css/all.min.css';

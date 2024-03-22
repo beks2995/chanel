@@ -5,6 +5,7 @@ const initialState = {
     pass: '',
     email: '',
     emailExists: false,
+    registrationSuccess: false,
 }
 
 export const authSlice = createSlice({
@@ -23,10 +24,13 @@ export const authSlice = createSlice({
         setEmailExists: (state, action) => {
             state.emailExists = action.payload
         },
+        setRegistrationSuccess: (state, action) => {
+            state.registrationSuccess = action.payload
+        },
     } 
 })
 
 
-export const { setName, setPass, setEmail, setEmailExists } = authSlice.actions
+export const { setName, setPass, setEmail, setEmailExists, setRegistrationSuccess } = authSlice.actions
 
 export default authSlice.reducer
