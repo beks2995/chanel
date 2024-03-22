@@ -1,0 +1,38 @@
+.input-post{
+    position: absolute;
+    background: none;
+    border: none;
+    top: 95%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+input:focus {
+    outline: none;
+}
+
+.btn-post{
+    position: absolute;
+    background: none;
+    border: none;
+    top: 95%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    color: #0b0955;
+}
+.fa-regular.fa-face-smile{
+    position: absolute;
+    background: none;
+    border: none;
+    top: 93%;
+    left: 4%;
+    font-size: 24px;
+}
+.icons-Emo{
+    position: absolute;
+    background: none;
+    border: none;
+    top: 25%;
+    left: -87.5%;
+}
