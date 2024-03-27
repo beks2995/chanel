@@ -1,10 +1,11 @@
-import React from 'react';
-import { collection, query, addDoc, getDocs } from "firebase/firestore";
 import './App.css'
+import React from 'react';
+// import Login from '../Login/Login';
 import { db } from '../../../firebase';
 import { Link, Navigate } from 'react-router-dom';
-import { setName, setPass, setEmail, setEmailExists, setRegistrationSuccess } from '@store/auth/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { collection, query, addDoc, getDocs } from "firebase/firestore";
+import { setName, setPass, setEmail, setEmailExists, setRegistrationSuccess } from '@store/auth/authSlice';
 
 const Registration = () => {
     const dispatch = useDispatch();
@@ -78,7 +79,7 @@ const Registration = () => {
             <div className="regForm">
                 <div className="text">
                     <h2 className='creat'>Create Account</h2>
-                    <div className='sing'>Already have an account? <Link className='a' >Sign in</Link></div>
+                    <div className='sing'>Already have an account? <Link className='a' to="/Login" >Sign in</Link></div>
                 </div>
                 <form className='form' onSubmit={sub}>
                     <input type="text" placeholder='Username(min-4)' className='date' value={name} onChange={nameSub} />
