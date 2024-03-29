@@ -1,0 +1,46 @@
+[
+    {
+        "id": "edwyehnFTHFGHJdcghans",
+        "img": "base:64 string",
+        "descr": "post description",
+        "coments": [
+            {
+                "userName": "user1",
+                "text": "comment text by user1",
+                "date": "localData"
+            },
+            {
+                "userName": "user2",
+                "text": "comment text by user2",
+                "date": "localData"
+            },
+            {
+                "userName": "user1",
+                "text": "comment text by user1",
+                "date": "localData"
+            }
+        ]
+    },
+    {
+        "id": "123454",
+        "img": "base:64 string",
+        "descr": "post description",
+        "coments": [
+            {
+                "userName": "user1",
+                "text": "comment text by user1",
+                "date": "localData"
+            },
+            {
+                "userName": "user2",
+                "text": "comment text by user2",
+                "date": "localData"
+            },
+            {
+                "userName": "user1",
+                "text": "comment text by user1",
+                "date": "localData"
+            }
+        ]
+    }
+]
