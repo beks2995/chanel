@@ -3,6 +3,7 @@ import authAdmin from "./auth/authAdmin";
 
 export const store = configureStore({
     reducer: {
-        authAdmin
+        authAdmin,
+        auth: authSlice,
     },
 })
