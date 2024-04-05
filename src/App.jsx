@@ -1,5 +1,5 @@
 import React from "react";
-import {Routes, Route } from "react-router";
+import { Routes, Route, Navigate } from "react-router";
 import Posts from "./components/Posts/Posts";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './App.css'
@@ -9,15 +9,15 @@ import Login from "./components/auth/Login/Login";
 
 
 function App() {
-
+  
   return (
     <div className="App">
       <Routes>
-        <Route path="/home" element={<Posts/>}/>
-        <Route path="/posts" element={<PostForm/>}/>
+        <Route path="/home" element={<Posts/> }/>
+        <Route path="/gt" element={<PostForm/>}/>
         <Route path="/Login" element={<Login/>}/>
         <Route path="/" element={<Registration/>}/>
-       </Routes>
+      </Routes>
     </div>
   );
 }

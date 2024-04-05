@@ -1,7 +1,6 @@
 import './App.css'
 import React from 'react';
-// import Login from '../Login/Login';
-import { db } from '../../../firebase';
+import { db } from '@fireb';
 import { Link, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { collection, query, addDoc, getDocs } from "firebase/firestore";

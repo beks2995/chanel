@@ -1,14 +1,14 @@
 import "./Login.css"
 import React, { useState } from 'react';
-import { db } from '../../../firebase/index';
-import { Link, Navigate, Route } from 'react-router-dom';
+import { db } from '@fireb/index';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { collection, query, getDocs } from "firebase/firestore";
 import { setPass, setEmail, setEmailExists, setPassExists } from '@store/auth/LoginSlice';
 
 const Login = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
 
   const passSub = (e) => {
     dispatch(setPass(e.target.value));
@@ -39,18 +39,20 @@ const Login = () => {
     console.log(foundEmail);
     console.log(foundPass);
 
-    if (
-      email.indexOf(' ') !== -1 ||
-      email.length < 4 ||
-      email.length > 25 ||
-      pass.indexOf(' ') !== -1 ||
-      pass.length < 4 ||
-      pass.length > 60
-    ) {
-      alert('Неправильная форма входа!!!');
-    } else if (foundEmail || foundPass) {
-      <Navigate to="/home" />;
-    }
+    
+if (pass.indexOf(' ') !== -1 ) {
+  alert('Неправильная форма пароля!!!')
+} else if (pass.length < 8 ) {
+  alert('Слишком короткий пароль!!!')
+} else if (pass.length > 60 ) {
+  alert('Слишком длинный пароль!!!')
+} else if (email.indexOf(' ') !== -1 ) {
+  alert('Неправильная форма email!!!')
+} else if (foundEmail && foundPass) {
+  navigate("/home")
+} else {
+  alert('Не правильный логин или пароль')
+}
   };
 
   return (
@@ -69,4 +71,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default React.memo(Login);
