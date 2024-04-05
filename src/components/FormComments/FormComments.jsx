@@ -56,7 +56,7 @@ import { db } from "../../firebase";
                 ))}
             </ul>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form className='formComm' onSubmit={handleSubmit}>
         <i class="fa-regular fa-face-smile"></i>
             <input className='input-commnets' type="text" value={newComment} onChange={handleChange} placeholder="Добавте комментарий" />
             <button className='btn-commmnts' type="submit">Опубликовать</button>

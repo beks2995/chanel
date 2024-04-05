@@ -7,15 +7,8 @@
 body{
   background-image: url(https://img.freepik.com/premium-vector/vector-instagram-background-in-gradient-colors_921039-4890.jpg);
   background-attachment: fixed;
-  background-size: 100% 100%;
+  background-size: 100%;
   background-repeat: no-repeat;
   
 }
 
-.App{
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px auto;
-}

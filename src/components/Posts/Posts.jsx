@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { collection, query, onSnapshot, addDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import './Posts.css';
 import mockDate from '../mock/mockDate.json';
 
 const Posts = () => {
   const { post_id } = useParams();
   const [saved, setSaved] = useState(false);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
   const [likedPosts, setLikedPosts] = useState(() => {
     const storedLikedPosts = localStorage.getItem('likedPosts');
     return storedLikedPosts ? JSON.parse(storedLikedPosts) : [];
@@ -26,6 +28,13 @@ const Posts = () => {
     return () => {
       unsubscribe();
     };
+  }, []);
+
+  useEffect(() => {
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      setUser(JSON.parse(userData));
+    }
   }, []);
 
   useEffect(() => {
@@ -53,8 +62,26 @@ const Posts = () => {
     setSaved(!saved);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    return navigate('/');
+  };
+
   return (
-    <div>
+    <div className='wrapper'>
+      <div className='user'>
+      
+        {user ? (
+          <div className='user__profile'>
+          <h2>User Profile</h2>
+          <img className='user-photo' src="https://static.vecteezy.com/system/resources/previews/008/442/086/non_2x/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg" alt="" />
+          <p>Name: {user.email}</p>
+          <button onClick={handleLogout}>выйти с аккаунта</button>
+    </div>
+        ) : (
+          <p>No user data found</p>
+        )}
+      </div>
       {mockDate
         .filter((post) => !post_id || post.post_id.toString() === post_id)
         .map((post) => (

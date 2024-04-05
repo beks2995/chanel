@@ -7,14 +7,17 @@ import PostForm from "./components/PostForm/PostForm";
 import Registration from "./components/auth/Registration";
 import Login from "./components/auth/Login/Login";
 
+const prov = () => {
+  return false
+}
 
 function App() {
   
   return (
     <div className="App">
       <Routes>
-        <Route path="/home" element={<Posts/> }/>
-        <Route path="/gt" element={<PostForm/>}/>
+        <Route path="/home" element={prov ? <Posts/> : <Navigate to='/Login' />}/>
+        <Route path="/posts/:post_id" element={<PostForm/>}/>
         <Route path="/Login" element={<Login/>}/>
         <Route path="/" element={<Registration/>}/>
       </Routes>

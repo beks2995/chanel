@@ -60,13 +60,14 @@ const Registration = () => {
                 email: email,
                 isAdmin: false,
             }).then(() => {
+                const user = { name: name, email: email };
+                localStorage.setItem('user', JSON.stringify(user));
+
                 dispatch(setRegistrationSuccess(true));
             }).catch((error) => {
                 console.error("ошибка: ", error);
             });
         }
-
-
     };
 
     if (registrationSuccess) {

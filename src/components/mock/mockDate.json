@@ -168,22 +168,5 @@
           "comment": "Студентка, увлекается чтением и искусством."
         }
       ] 
-    }, 
-    {
-      "post_id": "11",
-      "image_url": "https://www.google.com/imgres?imgurl=https%3A%2F%2Ft3.ftcdn.net%2Fjpg%2F04%2F74%2F05%2F94%2F360_F_474059464_qldYuzxaUWEwNTtYBJ44VN89ARuFktHW.jpg&tbnid=tojHF_6jZKHqnM&vet=12ahUKEwiVzZrxuoSEAxVx46ACHcO6BV8QMygBegQIARBP..i&imgrefurl=https%3A%2F%2Fstock.adobe.com%2Fsearch%3Fk%3Dyoutube%2Blogo&docid=FAm_Nl1wDEj7BM&w=451&h=360&q=youtube%20logo&client=safari&ved=2ahUKEwiVzZrxuoSEAxVx46ACHcO6BV8QMygBegQIARBP",
-      "caption": "Новая книга, которую я начал читать, захватывает меня с первых страниц. Уже сейчас я чувствую, что встречу с героями истории будет незабываемой. Не могу дождаться, чтобы узнать, как развиваются сюжет и персонажи!",
-      "likes": 90,
-      "commentsOf": [
-        {
-          "id": 11,
-          "username": "david_black",
-          "email": "niko.black@example.com",
-          "age": 33,
-          "gender": "male",
-          "country": "USA",
-          "comment": "Инженер-программист, увлекается видеоиграми и новыми технологиями."
-        }
-      ] 
     }
 ]
