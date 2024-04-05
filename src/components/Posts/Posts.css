@@ -1,0 +1,52 @@
+.post-card{
+    max-width: 400px;
+    margin-top: 20px;
+
+}
+
+.post-img{
+  width: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.incons-post{
+    display: flex;
+    gap: 12px;
+}
+
+.cnDetileCardLikeIcon{
+    font-size: 21px;
+    margin-left: 1px;
+    margin-top: 3px;
+    color: #ffff;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.fa-regular.fa-bookmark{
+    font-size: 21px;
+    margin-top: 3px;
+    margin-left: 300px;
+    color: #ffff;
+    cursor: pointer;
+}
+
+.cnDetileCarCommnet{
+    font-size: 21px;
+    margin-top: 3px;
+    color: #ffff;
+}
+
+.likes-post{
+    color: #b6b6b6;
+    margin-left: 1px;
+}
+
+  .post-action-link {
+    text-decoration: none;
+    color: aliceblue;
+  }
+  .liked {
+    color: red;
+  }
