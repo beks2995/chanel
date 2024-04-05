@@ -49,7 +49,6 @@ if (pass.indexOf(' ') !== -1 ) {
 } else if (email.indexOf(' ') !== -1 ) {
   alert('Неправильная форма email!!!')
 } else if (foundEmail && foundPass) {
-  localStorage.setItem('loggedInUser', email);
   navigate("/home")
 } else {
   alert('Не правильный логин или пароль')

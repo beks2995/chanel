@@ -64,7 +64,7 @@ const Posts = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('user');
-    return navigate('/');
+    return navigate('/Login');
   };
 
   return (
