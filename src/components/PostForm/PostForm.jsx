@@ -1,70 +1,80 @@
 import React, {useState, useEffect} from 'react'
+import { useParams } from 'react-router';
+import Posts from '../Posts';
+import  mockDate  from '../mock/mockDate.json'
 import './PostForm.css'
-import myImge from '../Imges/175607-Sepik.jpeg'
-import AddForm from '../AddForm';
 import { Link } from 'react-router-dom';
+import FormComments from '../FormComments/FormComments';
 
-
-const PostForm = ({postId, commentCount}) => {
-    const [saved, setSaved] = useState(false);
-    const [savedLikes, setSavedLikes] = useState(0);
-    const [liked, setLiked] = useState(() => {
-    const savedLikeState = localStorage.getItem(`likeState_${postId}`);
-    return savedLikeState === 'true';
+const PostForm = ({}) => {
+    const { post_id } = useParams();
+  const [saved, setSaved] = useState(false);
+  const [comments, setComments] = useState([]);
+  const [likedPosts, setLikedPosts] = useState(() => {
+  const storedLikedPosts = localStorage.getItem('likedPosts');
+    return storedLikedPosts ? JSON.parse(storedLikedPosts) : [];
   });
+  useEffect(() => {
+    localStorage.setItem('likedPosts', JSON.stringify(likedPosts));
+  }, [likedPosts]);
 
   useEffect(() => {
-    const savedLikes = localStorage.getItem(`likes_${postId}`);
-    if (savedLikes) {
-      setSavedLikes(parseInt(savedLikes));
+    const post = mockDate.find(post => post.post_id === post_id);
+    if (post) {
+      setComments(post.comments);
     }
-  }, [postId]);
+  }, [post_id]);
 
-  const handleLikeClick = () => {
-    const newLiked = !liked;
-    setLiked(newLiked);
-    const newSavedLikes = newLiked ? savedLikes + 1 : savedLikes - 1;
-    setSavedLikes(newSavedLikes);
-    localStorage.setItem(`likes_${postId}`, newSavedLikes.toString());
-    localStorage.setItem(`likeState_${postId}`, newLiked.toString());
+  const toggleLike = postId => {
+    if (likedPosts.includes(postId)) {
+      setLikedPosts(likedPosts.filter(id => id !== postId));
+    } else {
+      setLikedPosts([...likedPosts, postId]);
+    }
   };
 
+  const getTotalLikes = (postId, likes) => {
+    return likedPosts.includes(postId) ? likes + 1 : likes;
+  };
   const handleSaveClick = () => {
     setSaved(!saved);
   };
-  return (
-    <>
-    <div>
-        <img className='myImage-w1' src={myImge} alt="" />
-    </div>
-    <div className='posts-fon'>
-    <div>
-       <Link to={'/'}>
-       <div className='cross'></div>
-       </Link>
-      <p className='hr-p1'></p>
-      <p className='comment-p1'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi eius totam illo nemo error veniam. Lorem ipsum dolor sit ametconsectetur adipisicing elit Lorem ipsum dolor sit elit Lorem ipsum dolor sit ametconsectetur adipisicin
-      </p>
-
-      <div className="comment-p1">
-  {typeof commentCount === 'string' ? commentCount.split('\n').slice(0, 3).join('\n') : ''}
-  {typeof commentCount === 'string' && commentCount.split('\n').length > 3 && '...'}
-</div>
-
-      <div className="post-icons">
-        <i className={`far fa-heart${liked ? ' fas' : ''}`} onClick={handleLikeClick} style={{ color: liked ? 'red' : 'black', fontSize: liked ? '23px' : '23px' }}></i>
-        <i className={`fa-regular fa-bookmark${saved ? ' fas' : ''}`} onClick={handleSaveClick} style={{ color: saved ? 'blue' : 'black', fontSize: saved ? '23px' : '23px' }}></i>
-        <span className="comment-count">{savedLikes} отметок "нравится"</span>
-        <i className="far fa-comment"></i>
-      </div>
-      <AddForm/>
-    </div>
-
-    </div>
-    </>
+  
     
+
+
+  return (
+    <div className='postsForm-black'>
+     <Posts/>
+     <div className='post-colum-black'>
+     {mockDate
+                .filter(post => !post_id || post.post_id.toString() === post_id)
+                .map(post => (
+        <div key={post.post_id} className='post-card-black'>
+            <Link to={'/home'}>
+            <div className='cross'>
+            </div>
+            </Link>
+              <p className='span-post'>
+              {post.caption}
+            </p>
+            <div className="post-actions-black">
+          <div className='incons-post-black'>
+          <i className={`fa-heart cnDetileCardLikeIcon ${likedPosts.includes(post.post_id) ? "fas liked" : "far"}`} onClick={() => toggleLike(post.post_id)} />
+              <i className="fa-regular fa-comment cnDetileCarCommnet" />
+            <i className={`fa-regular fa-bookmark${saved ? ' fas' : '' }`} onClick={handleSaveClick} style={{ color: saved ? '#fff' : '#fff', }}></i>
+          </div>
+          <span className='likes-post'>{getTotalLikes(post.post_id, post.likes)} отметок "Нравится"</span>
+          </div>
+           <div className='mock'>
+            </div>
+        </div>
+      ))}
+      <FormComments comments={comments} setComments={setComments} />
+     </div>
+    </div>
   )
 }
 
 export default PostForm
+

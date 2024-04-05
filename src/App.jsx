@@ -1,6 +1,8 @@
+
+import Posts from "./components/Posts";
+import './App.css'
 import React from "react";
 import {Routes, Route } from "react-router";
-import Posts from "./components/Posts/Posts";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './App.css'
 import PostForm from "./components/PostForm/PostForm";
@@ -14,10 +16,10 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/home" element={<Posts/>}/>
-        <Route path="/posts" element={<PostForm/>}/>
+        <Route path="/posts/:post_id" element={<PostForm/>}/>
         <Route path="/Login" element={<Login/>}/>
         <Route path="/" element={<Registration/>}/>
-       </Routes>
+      </Routes>
     </div>
   );
 }
