@@ -50,3 +50,37 @@
   .liked {
     color: red;
   }
+
+.myImage{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 500px;
+    border-radius: 5px;
+}
+.comment-p3{
+    color: #fefefe;
+    position: absolute;
+    top: 91.5%;
+    left: 49.5%;
+    transform: translate(-50%, -50%);
+    max-width: 380px;
+
+}
+.comment-count-w1{
+    color: #fefefe;
+    position: absolute;
+    top: 85%;
+    left: 40.5%;
+    transform: translate(-50%, -50%);
+}
+.fa-regular.fa-comment{
+    position: absolute;
+    top: 80.2%;
+    left: 39%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #fefefe;
+}
