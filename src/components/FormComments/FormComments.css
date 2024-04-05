@@ -1,0 +1,55 @@
+.form-commnntsRoot{
+    position: absolute;
+    top: 270px;
+}
+
+.coments-w1{
+    color: aliceblue;
+}
+
+.li-comments{
+    color: aliceblue;
+}
+
+.input-commnets{
+    color: aliceblue;
+    border: none;
+    background: none;
+    font-size: 16px;
+    margin-left: 25px;
+
+}
+
+.formComm{
+    margin-top: 215px;
+}
+
+.ul-post-commnets{
+    overflow: hidden;
+    height: 130px;
+    position: absolute;
+
+}
+
+li{
+    list-style-type: none;    
+}
+input:focus {
+    outline: none;
+}
+
+.btn-commmnts{
+    outline: none;
+    border: none;
+    background: none;
+    color: rgb(121, 163, 219);
+    font-size: 15px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.fa-regular.fa-face-smile{
+color: aliceblue;
+font-size: 23px;
+cursor: pointer;
+}

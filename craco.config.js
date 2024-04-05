@@ -8,6 +8,8 @@ module.exports = {
             '@components': resolvePath('./src/components'),
             '@pages': resolvePath('./src/pages'),
             '@store': resolvePath('./src/store'),
+            '@fireb': resolvePath('./src/firebase'),
+
         }
     }
 };
