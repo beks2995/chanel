@@ -1,0 +1,103 @@
+.post-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.myImage {
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.post-icons {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+.post-icons svg {
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.post-icons svg.liked {
+    color: red;
+}
+
+.post-icons svg.saved {
+    color: blue;
+}
+
+.post-details {
+    padding: 8px;
+}
+
+.comment-count-w1 {
+    font-weight: bold;
+}
+
+.comment-count-w1 {
+    padding: 15px;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+    padding: 0;
+}
+
+.commentsInputForm {
+    background-color: rgb(234, 255, 0);
+    border: 1px solid #fff3;
+    border-radius: 20px 0 0 20px;
+    border-bottom: none;
+    border-right: none;
+    font-size: 14px;
+    height: 20px;
+    outline: none;
+    padding-left: 15px;
+    width: 40%;
+}
+
+.commentsInputForm:focus {
+    outline: none;
+}
+
+.submitInputBtn {
+    background-color: rgb(234, 255, 0);
+    border: 1px solid #ffffff4d;
+    border-bottom: none;
+    border-radius: 0 20px 20px 0;
+    border-right: none;
+    cursor: pointer;
+    height: 23.9px;
+    opacity: .7;
+    outline: none;
+    width: 30%;
+}
+
+.post-icons {
+    padding: 8px;
+    position: absolute; 
+    top: 15px; 
+    right: 15px; 
+}
+
+.post-icons svg {
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+    margin-right: 10px; 
+}
+
+.likeIcon {
+    width: 20px;
+}
+
